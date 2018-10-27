@@ -9,6 +9,6 @@ yarn start # 启动electron
 ```
 
 #### TODO
-[ ] 添加ui库
-[ ] 添加state库
-[ ] 添加router库
+* [ ] 添加ui库
+* [ ] 添加state库
+* [ ] 添加router库
