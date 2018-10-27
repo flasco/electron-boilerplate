@@ -10,7 +10,7 @@ function createWindow() {
     height: 600,
     icon: './static/app.ico'
   });
-  currentWin.loadURL(`file://${__dirname}/index.html`);
+  currentWin.loadURL(`file://${__dirname}/static/index.html`);
   currentWin.on('closed', () => {
     currentWin = null;
   });
