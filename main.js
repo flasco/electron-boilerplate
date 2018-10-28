@@ -1,4 +1,8 @@
 const { app, BrowserWindow } = require('electron');
+const path = require('path');
+
+// 启动ipcMain
+require('./src/main/ipcListener');
 
 let currentWin;
 
@@ -10,7 +14,7 @@ function createWindow() {
     height: 600,
     icon: './static/app.ico'
   });
-  currentWin.loadURL(`file://${__dirname}/static/index.html`);
+  currentWin.loadURL(`file://${path.resolve(__dirname, './static/index.html')}`);
   currentWin.on('closed', () => {
     currentWin = null;
   });

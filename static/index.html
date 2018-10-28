@@ -9,13 +9,20 @@
 
       <script>
       (function() {
+        const link = document.createElement('link')
         const script = document.createElement('script')
+        link.type = 'text/css';
+        link.rel = 'stylesheet';
+        const head = document.getElementsByTagName('head')[0];
         if (process.env['NODE_ENV'] === 'dev') {
           script.src = 'http://localhost:8207/bundle.js'
+          link.href = 'http://localhost:8207/main.css'
         } else {
-          script.src = './dist/bundle.js'
+          script.src = '../dist/bundle.js'
+          link.href = '../dist/main.css'
         }
         document.write(script.outerHTML)
+        head.appendChild(link);
       }())
       </script>
     </body>

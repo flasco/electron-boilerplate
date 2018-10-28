@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "start": "cross-env NODE_ENV=dev electron .",
-    "dev:render": "webpack-dev-server --mode development --config ./config/webpack.dev.js",
+    "dev:render": "cross-env NODE_ENV=dev webpack-dev-server --mode development --config ./config/webpack.dev.js",
     "build:render": "npx webpack --mode production --config ./config/webpack.prod.js",
     "build:dist": "electron-builder --mac --x64",
     "pre": "yarn build:render && build:dist"
@@ -44,10 +44,13 @@
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "8",
+    "babel-plugin-zent": "^1.2.1",
+    "clean-webpack-plugin": "^0.1.19",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
     "electron": "^3.0.6",
@@ -58,10 +61,13 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-lean-imports": "^0.3.3",
     "eslint-plugin-react": "^7.11.1",
+    "file-loader": "^2.0.0",
     "husky": "^1.1.2",
     "is-electron-renderer": "^2.0.1",
     "lint-staged": "^7.3.0",
+    "mini-css-extract-plugin": "^0.4.4",
     "node-sass": "^4.9.4",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
     "prettier-eslint": "^8.8.2",
     "prettier-stylelint": "^0.4.2",
     "react-hot-loader": "^4.3.11",
@@ -70,13 +76,17 @@
     "stylelint": "^9.6.0",
     "stylelint-config-standard": "^18.2.0",
     "stylelint-processor-html": "^1.0.0",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "url-loader": "^1.1.2",
     "webpack": "^4.23.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10",
+    "webpack-merge": "^4.1.4",
     "webpack-target-electron-renderer": "^0.4.0"
   },
   "dependencies": {
     "react": "^16.6.0",
-    "react-dom": "^16.6.0"
+    "react-dom": "^16.6.0",
+    "zent": "^6.4.1"
   }
 }

@@ -1,14 +1,17 @@
 const path = require('path');
 const webpack = require('webpack');
+const merge = require('webpack-merge');
 const baseConfig = require('./webpack.base');
 
-module.exports = {
-  ...baseConfig,
+
+module.exports = merge.smart(baseConfig, {
+  mode: 'development',
+  devtool: 'inline-source-map',
   entry: [
     'webpack-dev-server/client?http://localhost:8207',
     'react-hot-loader/patch',
     'webpack/hot/only-dev-server',
-    './src/index.js',
+    './src/renderer/index.js',
   ],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -19,7 +22,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
-    contentBase: path.resolve(__dirname, './dist'),
+    contentBase: path.resolve(__dirname, '../dist'),
     host: 'localhost',
     compress: true,
     port: 8207,
@@ -27,4 +30,4 @@ module.exports = {
     overlay: true,
     hot: true
   },
-};
+});
