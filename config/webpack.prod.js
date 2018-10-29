@@ -10,14 +10,14 @@ module.exports = merge.smart(baseConfig, {
   mode: 'production',
   entry: ['./src/renderer/index.js'],
   plugins: [
-    new CleanWebpackPlugin(['dist/*.*'], {
+    new CleanWebpackPlugin(['dist/css/*.*', 'dist/js/*.*'], {
       root: path.resolve(__dirname, '../')
     })
   ],
   output: {
     path: path.join(__dirname, '../dist'),
-    filename: 'bundle.js',
-    publicPath: '/dist/'
+    filename: './js/bundle.js',
+    publicPath: '/dist/js'
   },
   optimization: {
     minimizer: [

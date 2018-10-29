@@ -3,7 +3,6 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const baseConfig = require('./webpack.base');
 
-
 module.exports = merge.smart(baseConfig, {
   mode: 'development',
   devtool: 'inline-source-map',
@@ -14,7 +13,7 @@ module.exports = merge.smart(baseConfig, {
     './src/renderer/index.js',
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, '../dist'),
     filename: 'bundle.js',
     publicPath: 'http://localhost:8207/'
   },
@@ -23,7 +22,7 @@ module.exports = merge.smart(baseConfig, {
   ],
   devServer: {
     contentBase: path.resolve(__dirname, '../dist'),
-    host: 'localhost',
+    host: '127.0.0.1',
     compress: true,
     port: 8207,
     historyApiFallback: true,

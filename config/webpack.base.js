@@ -1,8 +1,10 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const webpack = require('webpack');
+const path = require('path');
 
 const isDev = process.env.NODE_ENV === 'dev';
 
-module.exports = {
+const config = {
   module: {
     rules: [
       {
@@ -96,11 +98,19 @@ module.exports = {
     __dirname: false,
     __filename: false
   },
-  plugins: !isDev
-    ? [
-      new MiniCssExtractPlugin({
-        filename: '[name].css',
-      })
-    ]
-    : [],
+  plugins: [
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      manifest: path.join(__dirname, '../dist/vendor-manifest.json')
+    })
+  ]
 };
+
+!isDev
+  && config.plugins.push(
+    new MiniCssExtractPlugin({
+      filename: '../dist/css/[name].css'
+    })
+  );
+
+module.exports = config;

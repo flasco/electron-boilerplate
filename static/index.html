@@ -7,22 +7,22 @@
     <body>
       <div id="root">loading script...</div>
 
+      <script src="../dist/dll/vendor.dll.js"></script>
       <script>
       (function() {
-        const link = document.createElement('link')
-        const script = document.createElement('script')
-        link.type = 'text/css';
-        link.rel = 'stylesheet';
-        const head = document.getElementsByTagName('head')[0];
+        const script_main = document.createElement('script')
         if (process.env['NODE_ENV'] === 'dev') {
-          script.src = 'http://localhost:8207/bundle.js'
-          link.href = 'http://localhost:8207/main.css'
+          script_main.src = 'http://localhost:8207/bundle.js'
         } else {
-          script.src = '../dist/bundle.js'
-          link.href = '../dist/main.css'
+          script_main.src = '../dist/js/bundle.js'
+          const head = document.getElementsByTagName('head')[0];
+          const link = document.createElement('link')
+          link.type = 'text/css';
+          link.rel = 'stylesheet';
+          link.href = '../dist/css/main.css'
+          head.appendChild(link);
         }
-        document.write(script.outerHTML)
-        head.appendChild(link);
+        document.write(script_main.outerHTML)
       }())
       </script>
     </body>

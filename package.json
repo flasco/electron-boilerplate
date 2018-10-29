@@ -8,7 +8,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=dev electron .",
     "dev:render": "cross-env NODE_ENV=dev webpack-dev-server --mode development --config ./config/webpack.dev.js",
-    "build:render": "npx webpack --mode production --config ./config/webpack.prod.js",
+    "build:render": "node scripts/build-render.js",
     "build:dist": "electron-builder --mac --x64",
     "pre": "yarn build:render && build:dist"
   },
@@ -68,6 +68,7 @@
     "mini-css-extract-plugin": "^0.4.4",
     "node-sass": "^4.9.4",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "ora": "^3.0.0",
     "prettier-eslint": "^8.8.2",
     "prettier-stylelint": "^0.4.2",
     "react-hot-loader": "^4.3.11",
