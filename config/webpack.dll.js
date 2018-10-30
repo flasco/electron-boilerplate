@@ -5,7 +5,7 @@ module.exports = {
   // 要打包的模块的数组
   context: __dirname,
   entry: {
-    vendor: ['react', 'react-dom']
+    vendor: ['react', 'react-dom', 'react-router-dom', 'dva-core', 'react-redux']
   },
   output: {
     path: path.join(__dirname, '../dist/dll'), // 打包后文件输出的位置

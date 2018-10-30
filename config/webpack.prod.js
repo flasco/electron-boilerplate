@@ -16,8 +16,8 @@ module.exports = merge.smart(baseConfig, {
   ],
   output: {
     path: path.join(__dirname, '../dist'),
-    filename: './js/bundle.js',
-    publicPath: '/dist/js'
+    filename: 'js/bundle.js',
+    publicPath: '../dist/'
   },
   optimization: {
     minimizer: [

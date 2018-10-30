@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "start": "cross-env NODE_ENV=dev electron .",
-    "dev:render": "cross-env NODE_ENV=dev webpack-dev-server --mode development --config ./config/webpack.dev.js",
+    "dev:render": "node scripts/check-dll.js && cross-env NODE_ENV=dev webpack-dev-server --mode development --config ./config/webpack.dev.js",
     "build:render": "node scripts/build-render.js",
     "build:dist": "electron-builder --mac --x64",
     "pre": "yarn build:render && build:dist"
@@ -45,6 +45,8 @@
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
@@ -86,8 +88,11 @@
     "webpack-target-electron-renderer": "^0.4.0"
   },
   "dependencies": {
+    "dva-core": "^1.4.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
+    "react-redux": "^5.1.0",
+    "react-router-dom": "^4.3.1",
     "zent": "^6.4.1"
   }
 }

@@ -109,7 +109,7 @@ const config = {
 !isDev
   && config.plugins.push(
     new MiniCssExtractPlugin({
-      filename: '../dist/css/[name].css'
+      filename: '/css/[name].css',
     })
   );
 
