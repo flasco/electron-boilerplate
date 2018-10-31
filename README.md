@@ -9,7 +9,7 @@ yarn start # 启动electron
 ```
 
 #### tips
-如果修改了dll内容的话记得要删掉dist文件夹或者删掉里面的`vendor-manifest.json`文件，这样就会重新构建了
+如果修改了dll内容的话记得在执行时带上`--re-dll`
 
 #### TODO
 * [x] 添加ui库
