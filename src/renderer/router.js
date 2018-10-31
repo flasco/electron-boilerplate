@@ -17,13 +17,11 @@ const Test = () => <div>Test!</div>;
 
 const routes = (
   <HashRouter>
-    <div>
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/page2" component={Page2} />
-        <Route path="/page3" component={Test} />
-      </Switch>
-    </div>
+    <Switch>
+      <Route path="/" exact component={Home} />
+      <Route path="/page2" component={Page2} />
+      <Route path="/page3" component={Test} />
+    </Switch>
   </HashRouter>
 );
 
