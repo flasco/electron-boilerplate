@@ -12,7 +12,7 @@
       (function() {
         const script_main = document.createElement('script')
         if (process.env['NODE_ENV'] === 'dev') {
-          script_main.src = 'http://localhost:8207/bundle.js'
+          script_main.src = 'http://localhost:8207/js/bundle.js'
         } else {
           script_main.src = '../dist/js/bundle.js'
           const head = document.getElementsByTagName('head')[0];

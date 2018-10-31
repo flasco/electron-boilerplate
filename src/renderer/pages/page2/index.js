@@ -17,7 +17,7 @@ class Page2 extends React.PureComponent {
     const { cnt = 0 } = this.props;
     return (
       <React.Fragment>
-        <div className="test">hello test2!</div>
+        <div className="test">hello page2!</div>
         <div className="test">{`cnt: ${cnt}`}</div>
         <img src={ico} alt="test" />
         <Button onClick={this.add}>测试</Button>

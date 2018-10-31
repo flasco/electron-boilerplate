@@ -11,6 +11,7 @@ module.exports = merge.smart(baseConfig, {
   entry: ['./src/renderer/index.js'],
   plugins: [
     new CleanWebpackPlugin(['dist/css/*.*', 'dist/js/*.*'], {
+      verbose: false,
       root: path.resolve(__dirname, '../')
     })
   ],

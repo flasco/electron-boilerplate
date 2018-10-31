@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "start": "cross-env NODE_ENV=dev electron .",
-    "dev:render": "node scripts/check-dll.js && cross-env NODE_ENV=dev webpack-dev-server --mode development --config ./config/webpack.dev.js",
+    "dev:render": "cross-env NODE_ENV=dev node scripts/dev-render.js",
     "build:render": "node scripts/build-render.js",
     "build:dist": "electron-builder --mac --x64",
     "pre": "yarn build:render && build:dist"
@@ -68,6 +68,7 @@
     "is-electron-renderer": "^2.0.1",
     "lint-staged": "^7.3.0",
     "mini-css-extract-plugin": "^0.4.4",
+    "minimist": "^1.2.0",
     "node-sass": "^4.9.4",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "ora": "^3.0.0",
