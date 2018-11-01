@@ -12,11 +12,17 @@ function createWindow() {
   currentWin = new BrowserWindow({
     width: 800,
     height: 600,
+    show: false,
     icon: './static/app.ico'
   });
   currentWin.loadURL(`file://${path.resolve(__dirname, './static/index.html')}`);
   currentWin.on('closed', () => {
     currentWin = null;
+  });
+
+  currentWin.on('ready-to-show', () => {
+    currentWin.show();
+    currentWin.focus();
   });
 }
 
