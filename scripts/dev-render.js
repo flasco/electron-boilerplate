@@ -17,25 +17,14 @@ async function start() {
     await dllComplier();
     spinner_dll.succeed();
   }
-  const spinner = ora('compiling app...');
-  let compiler = webpack(config, (err, stats) => {
-    if (err || stats.hasErrors()) {
-      // 构建过程出错
-      spinner.fail();
-      console.log(err);
-      process.exit(1);
-    }
-    spinner.succeed();
-  });
+  let compiler = webpack(config);
   let server = new WebpackDevServer(compiler, {
     contentBase: path.resolve(__dirname, '../dist'),
     hot: true,
-    historyApiFallback: false,
+    historyApiFallback: true,
     compress: true,
-    staticOptions: {},
     quiet: false,
     noInfo: false,
-    lazy: true,
     filename: 'bundle.js',
     watchOptions: {
       aggregateTimeout: 300,

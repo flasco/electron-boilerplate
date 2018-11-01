@@ -13,6 +13,11 @@ class Page2 extends React.PureComponent {
     dispatch && dispatch(createAction('app/testAdd')({}));
   };
 
+  jmpHome = () => {
+    const { history } = this.props;
+    history && history.goBack();
+  };
+
   render() {
     const { cnt = 0 } = this.props;
     return (
@@ -20,13 +25,16 @@ class Page2 extends React.PureComponent {
         <div className="test">hello page2!</div>
         <div className="test">{`cnt: ${cnt}`}</div>
         <img src={ico} alt="test" />
-        <Button onClick={this.add}>测试</Button>
+        <Button onClick={this.add}>222</Button>
+        <Button onClick={this.jmpHome}>返回首页</Button>
       </React.Fragment>
     );
   }
 }
 
 function select(state) {
+  console.log(state);
+  if (state == null) return {};
   return {
     cnt: state.app.cnt
   };

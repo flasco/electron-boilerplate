@@ -5,6 +5,7 @@
 ```bash
 yarn install # 安装依赖
 yarn dev:render [--re-dll] # 开启热加载, re-dll: rebuild dll
+yarn build:render [--re-dll] [--dev] # build code. re-dll: rebuild dll, dev: dev config
 yarn start # 启动electron
 ```
 

@@ -1,42 +1,9 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 const path = require('path');
-
-const isDev = process.env.NODE_ENV === 'dev';
 
 const config = {
   module: {
     rules: [
-      {
-        test: /\.css$/,
-        use: isDev
-          ? ['style-loader', 'css-loader']
-          : [MiniCssExtractPlugin.loader, 'css-loader']
-      },
-      {
-        test: /\.scss$/,
-        use: isDev
-          ? ['style-loader', 'css-loader', 'sass-loader']
-          : [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
-      },
-      {
-        test: /\.js?$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            cacheDirectory: true,
-            plugins: [
-              [
-                require.resolve('babel-plugin-zent'),
-                {
-                  automaticStyleImport: true
-                }
-              ]
-            ]
-          }
-        }
-      },
       // WOFF Font
       {
         test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
@@ -105,12 +72,5 @@ const config = {
     })
   ]
 };
-
-!isDev
-  && config.plugins.push(
-    new MiniCssExtractPlugin({
-      filename: '/css/[name].css',
-    })
-  );
 
 module.exports = config;
