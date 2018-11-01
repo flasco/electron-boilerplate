@@ -25,7 +25,7 @@ class Page2 extends React.PureComponent {
         <div className="test">hello page2!</div>
         <div className="test">{`cnt: ${cnt}`}</div>
         <img src={ico} alt="test" />
-        <Button onClick={this.add}>222</Button>
+        <Button onClick={this.add}>happy~</Button>
         <Button onClick={this.jmpHome}>返回首页</Button>
       </React.Fragment>
     );

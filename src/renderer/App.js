@@ -6,13 +6,11 @@ import appModel from './models/app';
 
 const app = dva({
   initialState: {},
-  models: [],
+  models: [appModel],
   onError(e) {
     console.log('onError', e);
   }
 });
-
-app.model(appModel);
 
 const App = hot(module)(app.start(Routes));
 
